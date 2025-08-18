@@ -138,13 +138,29 @@ document.getElementById("checkAge").addEventListener("click", function () {
 });
 
 // ==== greet user =====
-document.getElementById("checkName").addEventListener("click", function(){
+document.getElementById("checkName").addEventListener("click", function () {
   const name = document.getElementById("nameInput").value;
-  message = "Hello " + name
+  message = "Hello " + name;
   console.log(message);
   document.querySelector(".message").textContent = message;
-})
+});
 
+// ===== greet user and use function =====
+function greetUser(name) {
+  let message = "Hello " + name;
+  console.log(message);
+  document.querySelector(".message").textContent = message;
+}
+document.getElementById("checkName").addEventListener("click", function () {
+  const name = document.getElementById("nameInput").value;
+  greetUser(name);
+});
+
+// ===== changes text after clicking button ===
+let message = "You clicked the button!";
+document.getElementById("clickMe").addEventListener("click", function(){
+  document.getElementById("myText").textContent = message;
+});
 
 // -------------------------- CALLING FUNCTIONS -------------------------
 showVariables();
