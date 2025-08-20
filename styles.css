@@ -1,4 +1,12 @@
-.message{
-    white-space: pre-line;
+body {
+  background-image: url(img.png);
+  margin-left: 2rem;
 }
 
+.message {
+  white-space: pre-line;
+}
+
+p,h1 {
+    color: white;
+}

@@ -158,9 +158,44 @@ document.getElementById("checkName").addEventListener("click", function () {
 
 // ===== changes text after clicking button ===
 let message = "You clicked the button!";
-document.getElementById("clickMe").addEventListener("click", function(){
+document.getElementById("clickMe").addEventListener("click", function () {
   document.getElementById("myText").textContent = message;
 });
+
+// ====== turning a paragraph text blue =======
+document.getElementById("clickMe").addEventListener("click", function () {
+  document.getElementById("myText").style.color = "blue";
+  document.getElementById("myText").style.fontSize ="40px";
+  document.getElementById("myText").style.fontStyle = ""
+});
+
+// ===== changes background color of button =====
+document.getElementById("clickMe").addEventListener("click", function () {
+  if (document.getElementById("clickMe").style.backgroundColor === "white") {
+    document.getElementById("clickMe").style.backgroundColor = "black";
+  } else {
+    document.getElementById("clickMe").style.backgroundColor = "white";
+  }
+});
+
+// =========== Mouseover event ============
+document.getElementById("hoverP").addEventListener("mouseover", function(){
+  document.getElementById("hoverP").style.color = "brown";
+});
+document.getElementById("hoverP").addEventListener("mouseout",function(){
+  document.getElementById("hoverP").style.color = "white";
+});
+
+// ============= keydown/keyup =========
+
+
+
+
+
+
+// let math = 1 - "1";
+// console.log(math);
+// document.querySelector(".message").textContent = math;
 
 // -------------------------- CALLING FUNCTIONS -------------------------
 showVariables();
