@@ -189,7 +189,26 @@ document.getElementById("hoverP").addEventListener("mouseout",function(){
 // ============= keydown/keyup =========
 
 
+// ============== CREATING AND REMOVING ELEMENTS ==============
+const addBtn = document.getElementById("addBtn");
+const inputItem = document.getElementById("inputItem");
+const itemList = document.getElementById("itemList");
 
+addBtn.addEventListener("click", function(){
+  const text = inputItem.value.trim();
+  if (text === "") return;
+  const li = document.createElement("li");
+  li.textContent = text;
+  itemList.appendChild(li);
+  const removeBtn = document.createElement("button");
+  removeBtn.textContent = "Remove";
+  removeBtn.addEventListener("click", function(){
+    itemList.removeChild(li);
+  });
+  li.appendChild(removeBtn);
+  itemList.appendChild(li);
+  inputItem.value = "";
+});
 
 
 
