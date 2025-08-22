@@ -199,7 +199,6 @@ addBtn.addEventListener("click", function(){
   if (text === "") return;
   const li = document.createElement("li");
   li.textContent = text;
-  itemList.appendChild(li);
   const removeBtn = document.createElement("button");
   removeBtn.textContent = "Remove";
   removeBtn.addEventListener("click", function(){
@@ -210,6 +209,18 @@ addBtn.addEventListener("click", function(){
   inputItem.value = "";
 });
 
+// ======== arrays =========
+let tasks = ["Watch kenyan game", "Practice JS", "Do a mini project"];
+const taskList = document.getElementById("taskList");
+for (let task of tasks){
+  const li = document.createElement("li");
+  li.textContent = task;
+  taskList.appendChild(li)
+}
+tasks.push("Review notes"); 
+    const li = document.createElement("li");
+    li.textContent = "Review notes";
+    taskList.appendChild(li);
 
 
 // let math = 1 - "1";
