@@ -217,6 +217,8 @@ for (let task of tasks){
   li.textContent = task;
   taskList.appendChild(li)
 }
+
+// push() → add at the end
 function addTaskToPage(text){
 tasks.push(text); 
     const li = document.createElement("li");
@@ -226,7 +228,25 @@ tasks.push(text);
 
 addTaskToPage("Next task");
 
-// let math = 1 - "1";
+// pop() → remove last item
+tasks.pop();
+taskList.removeChild(taskList.lastChild);
+
+// shift() → remove first item
+tasks.shift();
+taskList.removeChild(taskList.firstChild);
+
+// unshift() → add at the beginning
+tasks.unshift("Added");
+const li = document.createElement("li");
+li.textContent = "Added";
+taskList.insertBefore(li, taskList.firstChild);
+
+// displays length
+console.log(tasks.length);
+document.querySelector(".message1").textContent = tasks.length;
+
+// // let math = 1 - "1";
 // console.log(math);
 // document.querySelector(".message").textContent = math;
 
