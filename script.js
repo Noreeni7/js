@@ -217,11 +217,14 @@ for (let task of tasks){
   li.textContent = task;
   taskList.appendChild(li)
 }
-tasks.push("Review notes"); 
+function addTaskToPage(text){
+tasks.push(text); 
     const li = document.createElement("li");
-    li.textContent = "Review notes";
+    li.textContent = text;
     taskList.appendChild(li);
+}
 
+addTaskToPage("Next task");
 
 // let math = 1 - "1";
 // console.log(math);
