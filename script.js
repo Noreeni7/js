@@ -246,6 +246,28 @@ taskList.insertBefore(li, taskList.firstChild);
 console.log(tasks.length);
 document.querySelector(".message1").textContent = tasks.length;
 
+
+// === Random Quote Generator: displays a random quote from an array when the button is clicked ===
+const quotes = [ "The best time to plant a tree was 20 years ago.",
+  "You miss 100% of the shots you don't take.",
+  "Every day is a second chance.",
+  "Believe you can and you're halfway there.",
+  "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+  "Do what you can, with what you have, where you are.",
+  "Don’t watch the clock; do what it does. Keep going.",
+  "What you get by achieving your goals is not as important as what you become by achieving your goals.",
+  "Start where you are. Use what you have. Do what you can.",
+  "Your limitation—it’s only your imagination.",
+  "Great things never come from comfort zones.",
+  "Believe in yourself and all that you are.",
+  "Small steps every day add up to big results.",
+  "Mistakes are proof that you are trying.",
+  "Do something today that your future self will thank you for."];
+document.getElementById("quoteBtn").addEventListener("click", function(){
+  const randomIndex = Math.floor(Math.random()*quotes.length);
+  document.getElementById("quoteDisplay").textContent = quotes[randomIndex];
+});
+
 // // let math = 1 - "1";
 // console.log(math);
 // document.querySelector(".message").textContent = math;
