@@ -268,6 +268,20 @@ document.getElementById("quoteBtn").addEventListener("click", function(){
   document.getElementById("quoteDisplay").textContent = quotes[randomIndex];
 });
 
+
+// ==================================== OBJECTS =======================================
+const person = {
+  name: "Dan",
+  age: 50,
+  job: "Software engineer"
+};
+console.log(person.name);
+console.log(person["name"]);
+person.age = 60;
+person.city = "Kericho";
+console.log(person["city"]);
+document.querySelector(".data").textContent = person.name + " " + person.age + " " + person["city"];
+
 // // let math = 1 - "1";
 // console.log(math);
 // document.querySelector(".message").textContent = math;
