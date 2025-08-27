@@ -282,6 +282,32 @@ person.city = "Kericho";
 console.log(person["city"]);
 document.querySelector(".data").textContent = person.name + " " + person.age + " " + person["city"];
 
+// ==================================== Looping Through Arrays & Objects ======================
+// ====== Arrays with for...of ======
+let favFoods = ["Potatoes", "Avocado", "Passion fruits"];
+
+for (let favFood of favFoods){
+  console.log(favFood);
+  document.querySelector(".favouriteFood").textContent += favFood + "\n";
+}
+
+// Using for...in to loop through object properties
+const car = {
+  model: "Toyota",
+  year: 2011,
+};
+for (let key in car){
+  console.log(key + ": " + car[key]);
+  document.querySelector(".carDetails").textContent += key + ": " + car[key] + "\n";
+};
+
+// === forEach on an array 
+let stations = ["KBS", "Citizen", "NTV"];
+
+stations.forEach(function(station, index){
+  console.log(index + 1 + ": " + station);
+});
+
 // // let math = 1 - "1";
 // console.log(math);
 // document.querySelector(".message").textContent = math;
