@@ -298,7 +298,7 @@ const car = {
 };
 for (let key in car){
   console.log(key + ": " + car[key]);
-  document.querySelector(".carDetails").textContent += key + ": " + car[key] + "\n";
+  document.querySelector(".carDetails").innerHTML += key + ": " + car[key] + "<br>";
 };
 
 // === forEach on an array 
@@ -307,6 +307,15 @@ let stations = ["KBS", "Citizen", "NTV"];
 stations.forEach(function(station, index){
   console.log(index + 1 + ": " + station);
 });
+
+// ======================== FUNCTION PARAMETERS & DEFAULT VALUES ===============================
+function multiply(a, b=1){
+  return a * b
+};
+console.log(multiply(3,5));
+console.log(multiply(9));
+document.querySelector(".mult").innerHTML += multiply(3,5) + "<br>";
+document.querySelector(".mult").innerHTML += multiply(9) + "<br>";
 
 // // let math = 1 - "1";
 // console.log(math);
