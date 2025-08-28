@@ -317,6 +317,13 @@ console.log(multiply(9));
 document.querySelector(".mult").innerHTML += multiply(3,5) + "<br>";
 document.querySelector(".mult").innerHTML += multiply(9) + "<br>";
 
+// ======================== ARROW FUNCTION WITH DEFAULT VALUES ===============================
+const multiply = (a, b=1) => a*b;
+console.log(multiply(3,5));
+console.log(multiply(9));
+document.querySelector(".mult").innerHTML += multiply(3,5) + "<br>";
+document.querySelector(".mult").innerHTML += multiply(9) + "<br>";
+
 // // let math = 1 - "1";
 // console.log(math);
 // document.querySelector(".message").textContent = math;
