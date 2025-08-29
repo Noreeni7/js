@@ -318,11 +318,23 @@ document.querySelector(".mult").innerHTML += multiply(3,5) + "<br>";
 document.querySelector(".mult").innerHTML += multiply(9) + "<br>";
 
 // ======================== ARROW FUNCTION WITH DEFAULT VALUES ===============================
-const multiply = (a, b=1) => a*b;
-console.log(multiply(3,5));
-console.log(multiply(9));
-document.querySelector(".mult").innerHTML += multiply(3,5) + "<br>";
-document.querySelector(".mult").innerHTML += multiply(9) + "<br>";
+const multily = (a, b=1) => a*b;
+console.log(multily(3,5));
+console.log(multily(9));
+document.querySelector(".mult").innerHTML += multily(3,5) + "<br>";
+document.querySelector(".mult").innerHTML += multily(9) + "<br>";
+
+// =================== Array Methods: Learn: .map(), .filter(), .reduce() =======================
+let numbers = [3,6,4,8,9,11];
+
+let doubled = numbers.map(number => number * 2);
+console.log("Doubled: " + doubled);
+
+let greaterThan10 = doubled.filter(number => number > 10);
+console.log("Number greater than 10 = " + greaterThan10);
+
+let sum = greaterThan10.reduce((total,number) => total+number,0);
+console.log("Total= " + sum);
 
 // // let math = 1 - "1";
 // console.log(math);
