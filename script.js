@@ -165,8 +165,8 @@ document.getElementById("clickMe").addEventListener("click", function () {
 // ====== turning a paragraph text blue =======
 document.getElementById("clickMe").addEventListener("click", function () {
   document.getElementById("myText").style.color = "blue";
-  document.getElementById("myText").style.fontSize ="40px";
-  document.getElementById("myText").style.fontStyle = ""
+  document.getElementById("myText").style.fontSize = "40px";
+  document.getElementById("myText").style.fontStyle = "";
 });
 
 // ===== changes background color of button =====
@@ -179,29 +179,28 @@ document.getElementById("clickMe").addEventListener("click", function () {
 });
 
 // =========== Mouseover event ============
-document.getElementById("hoverP").addEventListener("mouseover", function(){
+document.getElementById("hoverP").addEventListener("mouseover", function () {
   document.getElementById("hoverP").style.color = "brown";
 });
-document.getElementById("hoverP").addEventListener("mouseout",function(){
+document.getElementById("hoverP").addEventListener("mouseout", function () {
   document.getElementById("hoverP").style.color = "white";
 });
 
 // ============= keydown/keyup =========
-
 
 // ============== CREATING AND REMOVING ELEMENTS ==============
 const addBtn = document.getElementById("addBtn");
 const inputItem = document.getElementById("inputItem");
 const itemList = document.getElementById("itemList");
 
-addBtn.addEventListener("click", function(){
+addBtn.addEventListener("click", function () {
   const text = inputItem.value.trim();
   if (text === "") return;
   const li = document.createElement("li");
   li.textContent = text;
   const removeBtn = document.createElement("button");
   removeBtn.textContent = "Remove";
-  removeBtn.addEventListener("click", function(){
+  removeBtn.addEventListener("click", function () {
     itemList.removeChild(li);
   });
   li.appendChild(removeBtn);
@@ -212,18 +211,18 @@ addBtn.addEventListener("click", function(){
 // ======== arrays =========
 let tasks = ["Watch kenyan game", "Practice JS", "Do a mini project"];
 const taskList = document.getElementById("taskList");
-for (let task of tasks){
+for (let task of tasks) {
   const li = document.createElement("li");
   li.textContent = task;
-  taskList.appendChild(li)
+  taskList.appendChild(li);
 }
 
 // push() → add at the end
-function addTaskToPage(text){
-tasks.push(text); 
-    const li = document.createElement("li");
-    li.textContent = text;
-    taskList.appendChild(li);
+function addTaskToPage(text) {
+  tasks.push(text);
+  const li = document.createElement("li");
+  li.textContent = text;
+  taskList.appendChild(li);
 }
 
 addTaskToPage("Next task");
@@ -246,9 +245,9 @@ taskList.insertBefore(li, taskList.firstChild);
 console.log(tasks.length);
 document.querySelector(".message1").textContent = tasks.length;
 
-
 // === Random Quote Generator: displays a random quote from an array when the button is clicked ===
-const quotes = [ "The best time to plant a tree was 20 years ago.",
+const quotes = [
+  "The best time to plant a tree was 20 years ago.",
   "You miss 100% of the shots you don't take.",
   "Every day is a second chance.",
   "Believe you can and you're halfway there.",
@@ -262,31 +261,32 @@ const quotes = [ "The best time to plant a tree was 20 years ago.",
   "Believe in yourself and all that you are.",
   "Small steps every day add up to big results.",
   "Mistakes are proof that you are trying.",
-  "Do something today that your future self will thank you for."];
-document.getElementById("quoteBtn").addEventListener("click", function(){
-  const randomIndex = Math.floor(Math.random()*quotes.length);
+  "Do something today that your future self will thank you for.",
+];
+document.getElementById("quoteBtn").addEventListener("click", function () {
+  const randomIndex = Math.floor(Math.random() * quotes.length);
   document.getElementById("quoteDisplay").textContent = quotes[randomIndex];
 });
-
 
 // ==================================== OBJECTS =======================================
 const person = {
   name: "Dan",
   age: 50,
-  job: "Software engineer"
+  job: "Software engineer",
 };
 console.log(person.name);
 console.log(person["name"]);
 person.age = 60;
 person.city = "Kericho";
 console.log(person["city"]);
-document.querySelector(".data").textContent = person.name + " " + person.age + " " + person["city"];
+document.querySelector(".data").textContent =
+  person.name + " " + person.age + " " + person["city"];
 
 // ==================================== Looping Through Arrays & Objects ======================
 // ====== Arrays with for...of ======
 let favFoods = ["Potatoes", "Avocado", "Passion fruits"];
 
-for (let favFood of favFoods){
+for (let favFood of favFoods) {
   console.log(favFood);
   document.querySelector(".favouriteFood").textContent += favFood + "\n";
 }
@@ -296,49 +296,115 @@ const car = {
   model: "Toyota",
   year: 2011,
 };
-for (let key in car){
+for (let key in car) {
   console.log(key + ": " + car[key]);
-  document.querySelector(".carDetails").innerHTML += key + ": " + car[key] + "<br>";
-};
+  document.querySelector(".carDetails").innerHTML +=
+    key + ": " + car[key] + "<br>";
+}
 
-// === forEach on an array 
+// === forEach on an array
 let stations = ["KBS", "Citizen", "NTV"];
 
-stations.forEach(function(station, index){
+stations.forEach(function (station, index) {
   console.log(index + 1 + ": " + station);
 });
 
 // ======================== FUNCTION PARAMETERS & DEFAULT VALUES ===============================
-function multiply(a, b=1){
-  return a * b
-};
-console.log(multiply(3,5));
+function multiply(a, b = 1) {
+  return a * b;
+}
+console.log(multiply(3, 5));
 console.log(multiply(9));
-document.querySelector(".mult").innerHTML += multiply(3,5) + "<br>";
+document.querySelector(".mult").innerHTML += multiply(3, 5) + "<br>";
 document.querySelector(".mult").innerHTML += multiply(9) + "<br>";
 
 // ======================== ARROW FUNCTION WITH DEFAULT VALUES ===============================
-const multily = (a, b=1) => a*b;
-console.log(multily(3,5));
+const multily = (a, b = 1) => a * b;
+console.log(multily(3, 5));
 console.log(multily(9));
-document.querySelector(".mult").innerHTML += multily(3,5) + "<br>";
+document.querySelector(".mult").innerHTML += multily(3, 5) + "<br>";
 document.querySelector(".mult").innerHTML += multily(9) + "<br>";
 
 // =================== Array Methods: Learn: .map(), .filter(), .reduce() =======================
-let numbers = [3,6,4,8,9,11];
+let numbers = [3, 6, 4, 8, 9, 11];
 
-let doubled = numbers.map(number => number * 2);
+let doubled = numbers.map((number) => number * 2);
 console.log("Doubled: " + doubled);
 
-let greaterThan10 = doubled.filter(number => number > 10);
+let greaterThan10 = doubled.filter((number) => number > 10);
 console.log("Number greater than 10 = " + greaterThan10);
 
-let sum = greaterThan10.reduce((total,number) => total+number,0);
+let sum = greaterThan10.reduce((total, number) => total + number, 0);
 console.log("Total= " + sum);
 
-// // let math = 1 - "1";
-// console.log(math);
-// document.querySelector(".message").textContent = math;
+// ================== Date & Time: Date() object, .getHours(), .getMinutes() ===============
+let now = new Date();
+console.log("Current date and time: " + now);
+
+console.log("Hour: " + now.getHours());
+console.log("Minute: " + now.getMinutes());
+console.log("Seconds: " + now.getSeconds());
+
+// ====================  JSON BASICS: JSON.stringify(), JSON.parse() =====================
+let company = {
+  name: "cardPlace",
+  year: 2017,
+  service: "creative designs",
+};
+
+console.log("Company info: ", company);
+
+// Convert object → JSON string
+let companyJSON = JSON.stringify(company);
+console.log("Company info: " + companyJSON);
+
+// Save JSON string to localStorage
+localStorage.setItem("companyData", companyJSON);
+
+// Retrieve JSON string back from localStorage (use SAME key)
+let retrievedData = localStorage.getItem("companyData");
+console.log("retrieved: ", retrievedData);
+
+// Convert JSON string → object
+let obj = JSON.parse(retrievedData);
+console.log("object again: ", obj);
+
+// access values
+console.log("Name: ", obj.name);
+console.log("Year: ", obj.year);
+console.log("Service: ", obj.service);
+
+// See everything in localStorage
+console.log(localStorage);
+
+// Remove one item
+localStorage.removeItem("companyData");
+
+// Clear everything
+localStorage.clear();
+
+// ================  API?: fetch() , fetching and logging a sample API (e.g., JSONPlaceholder) =====
+fetch("https://jsonplaceholder.typicode.com/users")
+  .then((response) => response.json())
+  .then((users) => {
+    let list = document.getElementById("userList");
+
+    // Loop through each user in the array
+    users.forEach((user) => {
+
+      // Create a new list item for each user
+      let li = document.createElement("li");
+
+      // Add user’s name and email inside the <li>
+      li.textContent = `${user.name} (${user.email})`;
+
+      // Add the <li> to the <ul> so it shows on the page
+      list.appendChild(li);
+    });
+  })
+  .catch((error) => console.error("Error:", error)); // Handle errors
+
+
 
 // -------------------------- CALLING FUNCTIONS -------------------------
 showVariables();
