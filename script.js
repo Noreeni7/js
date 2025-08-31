@@ -345,7 +345,7 @@ console.log("Hour: " + now.getHours());
 console.log("Minute: " + now.getMinutes());
 console.log("Seconds: " + now.getSeconds());
 
-// ====================  JSON BASICS: JSON.stringify(), JSON.parse() =====================
+// =====  JSON BASICS: JSON.stringify(), JSON.parse(), localStorage.setItem(), localStorage.getItem =========
 let company = {
   name: "cardPlace",
   year: 2017,
@@ -404,7 +404,52 @@ fetch("https://jsonplaceholder.typicode.com/users")
   })
   .catch((error) => console.error("Error:", error)); // Handle errors
 
+  // ============================ SHORTCUTS FOR IF-STATEMENT =================================
+  // ========== 1.Tertiary operator ?: ==============
+  const result = true ? 'truthy' : 'falsy'
+  console.log(result);
+  document.querySelector(".tertiary-operator").textContent = result;
+  const results = 0 ? 'truthy' : 'falsy'
+  console.log(results);
+  document.querySelector(".tertiary-operator").textContent = results;
 
+  // ========== 2. Guard operator && ============
+
+
+  // ========== 2. Default operator || ============
+
+
+  // ========== 3. Parameters ============
+  function calculateTax(cost, percentage = 0.1){
+    console.log(cost * percentage)
+  }
+
+  calculateTax(20000, 0.2);
+  calculateTax(50000);
+
+
+  const score = {
+    wins: 0,
+    losses: 0,
+    ties: 0
+  };
+
+  function updateScore (result) {
+  if(result === 'win') {
+    score.wins +=1;
+  }
+  else if(result === 'lose'){
+    score.losses +=1;
+  }
+  else if(result === 'tie') {
+    score.ties +=1;
+  }
+};
+
+scoreJson = JSON.stringify(score);
+localStorage.setItem('scoreString', scoreJson);
+retrievedScore = localStorage.getItem('scoreString');
+scoreObj = JSON.parse(retrievedScore);
 
 // -------------------------- CALLING FUNCTIONS -------------------------
 showVariables();
