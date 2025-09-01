@@ -455,7 +455,30 @@ retrievedScore = localStorage.getItem('scoreString');
 scoreObj = JSON.parse(retrievedScore);
 
 
+// ========================================= LOOP ================================================ 
+// ======== while loop ========
+let i=1;
+ 
+while(i <= 5){
+  console.log(i);
+  i++;
+}
 
+// ========== for loop =========
+for(let i = 1; i <= 5; i++){
+  console.log(i)
+}
+
+// break and continue
+for (i = 0; i <= 10; i++){
+  if (i % 3 === 0) {
+    continue;
+  }  
+  console.log(i)
+  if (i === 8) {
+    break;
+  }
+}
 
 
 // -------------------------- CALLING FUNCTIONS -------------------------
