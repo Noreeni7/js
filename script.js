@@ -268,6 +268,8 @@ document.getElementById("quoteBtn").addEventListener("click", function () {
   document.getElementById("quoteDisplay").textContent = quotes[randomIndex];
 });
 
+
+
 // ==================================== OBJECTS =======================================
 const person = {
   name: "Dan",
@@ -428,6 +430,7 @@ fetch("https://jsonplaceholder.typicode.com/users")
   calculateTax(50000);
 
 
+  // rock paper scissor game
   const score = {
     wins: 0,
     losses: 0,
@@ -450,6 +453,10 @@ scoreJson = JSON.stringify(score);
 localStorage.setItem('scoreString', scoreJson);
 retrievedScore = localStorage.getItem('scoreString');
 scoreObj = JSON.parse(retrievedScore);
+
+
+
+
 
 // -------------------------- CALLING FUNCTIONS -------------------------
 showVariables();
