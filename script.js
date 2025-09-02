@@ -268,8 +268,6 @@ document.getElementById("quoteBtn").addEventListener("click", function () {
   document.getElementById("quoteDisplay").textContent = quotes[randomIndex];
 });
 
-
-
 // ==================================== OBJECTS =======================================
 const person = {
   name: "Dan",
@@ -393,7 +391,6 @@ fetch("https://jsonplaceholder.typicode.com/users")
 
     // Loop through each user in the array
     users.forEach((user) => {
-
       // Create a new list item for each user
       let li = document.createElement("li");
 
@@ -406,80 +403,171 @@ fetch("https://jsonplaceholder.typicode.com/users")
   })
   .catch((error) => console.error("Error:", error)); // Handle errors
 
-  // ============================ SHORTCUTS FOR IF-STATEMENT =================================
-  // ========== 1.Tertiary operator ?: ==============
-  const result = true ? 'truthy' : 'falsy'
-  console.log(result);
-  document.querySelector(".tertiary-operator").textContent = result;
-  const results = 0 ? 'truthy' : 'falsy'
-  console.log(results);
-  document.querySelector(".tertiary-operator").textContent = results;
+// ============================ SHORTCUTS FOR IF-STATEMENT =================================
+// ========== 1.Tertiary operator ?: ==============
+const result = true ? "truthy" : "falsy";
+console.log(result);
+document.querySelector(".tertiary-operator").textContent = result;
+const results = 0 ? "truthy" : "falsy";
+console.log(results);
+document.querySelector(".tertiary-operator").textContent = results;
 
-  // ========== 2. Guard operator && ============
+// ========== 2. Guard operator && ============
 
+// ========== 2. Default operator || ============
 
-  // ========== 2. Default operator || ============
+// ========== 3. Parameters ============
+function calculateTax(cost, percentage = 0.1) {
+  console.log(cost * percentage);
+}
 
+calculateTax(20000, 0.2);
+calculateTax(50000);
 
-  // ========== 3. Parameters ============
-  function calculateTax(cost, percentage = 0.1){
-    console.log(cost * percentage)
+// rock paper scissor game
+document.body.addEventListener("keydown", (event) => {
+  if (event.key === "r") {
+    const randomNumber = Math.random();
+    let computerMove = "";
+    if (randomNumber >= 0 && randomNumber < 1 / 3) {
+      computerMove = "rock";
+    } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
+      computerMove = "paper";
+    } else {
+      computerMove = "scissors";
+    }
+
+    let result = "";
+    if (computerMove === "rock") {
+      result = "tie";
+    } else if (computerMove === "paper") {
+      result = "lose";
+    } else if (computerMove === "scissors") {
+      result = "win";
+    }
+
+    updateScore(result);
+
+    document.querySelector(
+      ".js-Rscore"
+    ).textContent = `You picked rock, Computer picked ${computerMove}. You ${result} Wins: ${score.wins} ,Losses: ${score.losses}, Ties: ${score.ties}`;
+
+    alert(`You picked rock, Computer picked ${computerMove}. You ${result}
+       Wins: ${score.wins} ,Losses: ${score.losses}, Ties: ${score.ties}`);
+  } else if (event.key === "p") {
+    const randomNumber = Math.random();
+    let computerMove = "";
+    if (randomNumber >= 0 && randomNumber < 1 / 3) {
+      computerMove = "rock";
+    } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
+      computerMove = "paper";
+    } else {
+      computerMove = "scissors";
+    }
+
+    let result = "";
+    if (computerMove === "rock") {
+      result = "win";
+    } else if (computerMove === "paper") {
+      result = "tie";
+    } else if (computerMove === "scissors") {
+      result = "lose";
+    }
+
+    updateScore(result);
+
+    document.querySelector(
+      ".js-Pscore"
+    ).textContent = `You picked paper, Computer picked ${computerMove}. You ${result} Wins: ${score.wins} ,Losses: ${score.losses}, Ties: ${score.ties}`;
+
+    alert(`You picked paper, Computer picked ${computerMove}. You ${result}
+       Wins: ${score.wins} ,Losses: ${score.losses}, Ties: ${score.ties}`);
+  } else if (event.key === 's') {
+    const playerMove = 'scissors'
+    const randomNumber = Math.random();
+    let computerMove = "";
+    if (randomNumber >= 0 && randomNumber < 1 / 3) {
+      computerMove = "rock";
+    } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
+      computerMove = "paper";
+    } else {
+      computerMove = "scissors";
+    }
+
+    let result = "";
+    if (computerMove === "rock") {
+      result = "lose";
+    } else if (computerMove === "paper") {
+      result = "win";
+    } else if (computerMove === "scissors") {
+      result = "tie";
+    }
+    updateScore(result);
+
+    document.querySelector(
+      ".js-Sscore"
+    ).textContent = `You picked scissors, Computer picked ${computerMove}. You ${result} Wins: ${score.wins} ,Losses: ${score.losses}, Ties: ${score.ties}`;
+
+    alert(`You picked ${playerMove}, Computer picked ${computerMove}. You ${result}
+       Wins: ${score.wins} ,Losses: ${score.losses}, Ties: ${score.ties}`);
   }
+});
 
-  calculateTax(20000, 0.2);
-  calculateTax(50000);
-
-
-  // rock paper scissor game
-  const score = {
-    wins: 0,
-    losses: 0,
-    ties: 0
-  };
-
-  function updateScore (result) {
-  if(result === 'win') {
-    score.wins +=1;
-  }
-  else if(result === 'lose'){
-    score.losses +=1;
-  }
-  else if(result === 'tie') {
-    score.ties +=1;
-  }
+const score = {
+  wins: 0,
+  losses: 0,
+  ties: 0,
 };
 
+function updateScore(result) {
+  if (result === "win") {
+    score.wins += 1;
+  } else if (result === "lose") {
+    score.losses += 1;
+  } else if (result === "tie") {
+    score.ties += 1;
+  }
+}
+
 scoreJson = JSON.stringify(score);
-localStorage.setItem('scoreString', scoreJson);
-retrievedScore = localStorage.getItem('scoreString');
+localStorage.setItem("scoreString", scoreJson);
+retrievedScore = localStorage.getItem("scoreString");
 scoreObj = JSON.parse(retrievedScore);
 
-
-// ========================================= LOOP ================================================ 
+// ========================================= LOOP ================================================
 // ======== while loop ========
-let i=1;
- 
-while(i <= 5){
+let i = 1;
+
+while (i <= 5) {
   console.log(i);
   i++;
 }
 
 // ========== for loop =========
-for(let i = 1; i <= 5; i++){
-  console.log(i)
+for (let i = 1; i <= 5; i++) {
+  console.log(i);
 }
 
 // break and continue
-for (i = 0; i <= 10; i++){
+for (i = 0; i <= 10; i++) {
   if (i % 3 === 0) {
     continue;
-  }  
-  console.log(i)
+  }
+  console.log(i);
   if (i === 8) {
     break;
   }
 }
 
+// setTimeout(),
+setTimeout(function () {
+  console.log("time is out");
+}, 5000);
+
+// setInterval()
+setInterval(function () {
+  console.log("interval");
+}, 5000);
 
 // -------------------------- CALLING FUNCTIONS -------------------------
 showVariables();
